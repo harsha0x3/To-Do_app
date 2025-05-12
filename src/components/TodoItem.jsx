@@ -23,6 +23,7 @@ function TodoItem({ todo }) {
       } my-2 mx-10`}
     >
       <input
+        title="Mark Complete"
         type="checkbox"
         className="cursor-pointer"
         checked={todo.completed}
@@ -38,10 +39,10 @@ function TodoItem({ todo }) {
         onChange={(e) => setTodoMessage(e.target.value)}
       />
       <button
-        className="inline-flex w-8 h-8 rounded-lg text-sm bg-[#2c2f38] hover:bg-[#353944] shrink-0 disabled:opacity-50 flex-wrap content-center justify-center"
+        className="inline-flex w-8 h-8 rounded-lg text-sm bg-[#2c2f38] hover: hover:bg-[#353944] shrink-0 disabled:opacity-50 flex-wrap content-center justify-center"
+        title="Edit/Save"
         onClick={() => {
           if (todo.completed) return;
-          console.log("inner", isEditable);
           if (isEditable) {
             editTodo();
           } else setIsEditable((prev) => !prev);
@@ -76,6 +77,7 @@ function TodoItem({ todo }) {
       </button>
       <button
         className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-[#2c2f38] hover:bg-[#353944] shrink-0 flex-wrap content-center"
+        title="Delete"
         onClick={() => deleteTodo(todo.id)}
       >
         <svg
